@@ -1,11 +1,14 @@
 package com.example.photosearchapp.data.remote
 
+
+import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
-data class LinksX(
+data class LinksXX(
+    val download: String?,
+    @Json(name = "download_location")
+    val downloadLocation: String?,
     val html: String?,
-    val likes: String?,
-    val photos: String?,
     val self: String?
 )
