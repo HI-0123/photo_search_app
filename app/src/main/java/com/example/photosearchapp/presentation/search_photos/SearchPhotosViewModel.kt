@@ -9,7 +9,6 @@ import com.example.photosearchapp.domain.use_case.SearchPhotosUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
@@ -18,6 +17,10 @@ class SearchPhotosViewModel @Inject constructor(
 ) : ViewModel() {
     private val _state = mutableStateOf(SearchPhotosState())
     var state: State<SearchPhotosState> = _state
+
+    init {
+        searchPhotos("programing")
+    }
 
     fun searchPhotos(query: String) {
         searchPhotosUseCase(query).onEach { result ->
@@ -39,5 +42,4 @@ class SearchPhotosViewModel @Inject constructor(
             }
         }.launchIn(viewModelScope)
     }
-
 }

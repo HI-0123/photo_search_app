@@ -11,8 +11,11 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.photosearchapp.presentation.search_photos.SearchPhotoScreen
 import com.example.photosearchapp.presentation.theme.PhotoSearchAppTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,7 +33,7 @@ class MainActivity : ComponentActivity() {
                     ) {
                         // 画像検索画面
                         composable(route = ScreenRoute.SearchPhotosScreen.route) {
-
+                            SearchPhotoScreen()
                         }
 
                         // 画像詳細画面
