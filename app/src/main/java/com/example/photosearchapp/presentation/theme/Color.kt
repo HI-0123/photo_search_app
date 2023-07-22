@@ -1,4 +1,4 @@
-package com.example.photosearchapp.ui.theme
+package com.example.photosearchapp.presentation.theme
 
 import androidx.compose.ui.graphics.Color
 
