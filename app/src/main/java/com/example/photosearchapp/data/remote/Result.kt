@@ -13,6 +13,7 @@ data class Result(
     val likes: Int?,
     val links: Links?,
     val urls: Urls?,
+    val description: String?,
     val user: User?,
     val width: Int?
 )

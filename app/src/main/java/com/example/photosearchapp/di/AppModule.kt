@@ -12,7 +12,6 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
-import retrofit2.create
 import javax.inject.Singleton
 
 @Module
@@ -37,7 +36,5 @@ object AppModule {
     @Singleton
     fun providePhotoRepository(api: UnsplashApi): PhotoRepository {
         return PhotoRepositoryImpl(api)
-
     }
-
 }

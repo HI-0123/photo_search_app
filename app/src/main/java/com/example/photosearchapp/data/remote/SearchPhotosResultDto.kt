@@ -16,9 +16,10 @@ fun SearchPhotosResultDto.toPhotos(): List<Photo> {
     return results!!.map {
         Photo(
             photoId = it.id!!,
+            description = it.description,
             likes = it.likes,
             imageUrl = it.urls!!.raw!!,
             photographer = it.user?.username,
-            )
+        )
     }
 }
