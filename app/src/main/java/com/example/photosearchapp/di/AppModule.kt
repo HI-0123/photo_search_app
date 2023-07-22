@@ -25,7 +25,7 @@ object AppModule {
             .baseUrl(BASE_URL)
             .addConverterFactory(
                 MoshiConverterFactory.create(
-                    Moshi.Builder().add(KotlinJsonAdapterFactory()).build()
+                    Moshi.Builder().add(KotlinJsonAdapterFactory()).build(),
                 )
             )
             .build()

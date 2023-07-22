@@ -12,6 +12,7 @@ data class SearchPhotosResultDto(
     val totalPages: Int?
 )
 
+// PhotoモデルのListへ変換
 fun SearchPhotosResultDto.toPhotos(): List<Photo> {
     return results!!.map {
         Photo(

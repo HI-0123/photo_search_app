@@ -28,6 +28,7 @@ data class PhotoDetailDto(
     val width: Int?
 )
 
+// PhotoDetailモデルへ変換
 fun PhotoDetailDto.toPhotoDetail(): PhotoDetail {
     return PhotoDetail(
         description = description,

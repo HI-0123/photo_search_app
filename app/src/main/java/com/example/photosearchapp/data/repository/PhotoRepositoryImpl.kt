@@ -18,6 +18,4 @@ class PhotoRepositoryImpl @Inject constructor(
     override suspend fun getPhotoById(photoId: String): PhotoDetailDto {
         return api.getPhotoById(photoId)
     }
-
-
 }

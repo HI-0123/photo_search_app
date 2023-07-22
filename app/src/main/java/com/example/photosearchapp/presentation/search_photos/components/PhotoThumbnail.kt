@@ -36,14 +36,16 @@ fun PhotoThumbnail(
                 .background(Color.Black.copy(alpha = 0.5f))
                 .padding(16.dp),
         ) {
-            Column(modifier = Modifier.fillMaxWidth(0.8f)) {
+            Column(
+                modifier = Modifier.fillMaxWidth(0.8f),
+            ) {
                 Text(
                     text = photo.description ?: "no description",
                     color = Color.White,
                     style = MaterialTheme.typography.bodyMedium,
                 )
                 Text(
-                    text = photo.photographer ?: "unknown photographer",
+                    text = photo.photographer ?: "no photographer",
                     color = Color.White,
                     style = MaterialTheme.typography.bodySmall,
                 )
