@@ -7,18 +7,22 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
-import androidx.compose.material3.Icon
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import coil.compose.AsyncImage
 import com.example.photosearchapp.domain.model.Photo
+import com.example.photosearchapp.presentation.photo_detail.components.CountLabel
 
 @Composable
 fun PhotoThumbnail(
@@ -28,8 +32,16 @@ fun PhotoThumbnail(
     Box(
         modifier = Modifier
             .background(Color.Black)
+            .heightIn(min = 200.dp)
             .clickable { onClick(photo) },
+        contentAlignment = Alignment.BottomCenter,
     ) {
+        CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
+        AsyncImage(
+            model = photo.imageUrl,
+            contentDescription = photo.description,
+            modifier = Modifier.fillMaxWidth(),
+        )
         Row(
             modifier = Modifier
                 .fillMaxWidth()
@@ -51,16 +63,30 @@ fun PhotoThumbnail(
                 )
             }
             Spacer(modifier = Modifier.weight(1f))
-            Icon(
+            CountLabel(
                 imageVector = Icons.Default.Favorite,
-                contentDescription = "Likes",
-                tint = Color.Magenta,
-            )
-            Spacer(modifier = Modifier.width(4.dp))
-            Text(
-                text = photo.likes.toString(),
-                color = Color.White,
+                count = photo.likes ?: 0,
+                iconColor = Color.Magenta,
             )
         }
     }
 }
+
+@Preview
+@Composable
+private fun PhotoThumbnailPreview() {
+    val photo = Photo(
+        photoId = "",
+        description = "Image Preview",
+        likes = 100,
+        imageUrl = "https://unsplash.com/ja/%E5%86%99%E7%9C%9F/6kajEqr84iY",
+        photographer = "Mailchimp",
+    )
+    PhotoThumbnail(
+        photo = photo,
+        onClick = {},
+    )
+}
+
+
+

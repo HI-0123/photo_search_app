@@ -13,4 +13,6 @@
 .externalNativeBuild
 .cxx
 local.properties
+
+// API_KEY
 app/src/main/java/com/example/photosearchapp/common/constants.kt

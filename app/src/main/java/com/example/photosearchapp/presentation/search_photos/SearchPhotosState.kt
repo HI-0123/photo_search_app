@@ -6,4 +6,4 @@ data class SearchPhotosState(
     val isLoading: Boolean = false,
     val photos: List<Photo> = emptyList(),
     val error: String? = null,
-    )
+)
